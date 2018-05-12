@@ -1,25 +1,15 @@
 <template>
   <div class="list">
     <ul>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
-      <li class="item">A</li>
+      <li class="item" v-for="(item,key) of cities" :key="key">{{key}}</li>
     </ul>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    data() {
-      return {
-
-      }
-
+    props:{
+      cities:Object
     },
     components: {
 

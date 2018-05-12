@@ -10,49 +10,12 @@
       <div class="area">
         <div class="title">热门城市</div>
         <div class="list-con">
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
-          <button>北京</button>
+          <button v-for="item of hotCities" :key="item.id">{{item.name}}</button>
         </div>
       </div>
-      <div class="area">
-        <div class="title">A</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-      </div>
-      <div class="area">
-        <div class="title">A</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-      </div>
-      <div class="area">
-        <div class="title">A</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-      </div>
-      <div class="area">
-        <div class="title">A</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
-        <div class="item-city">阿拉尔</div>
+      <div class="area" v-for="(item,key) of cities" :key="key">
+        <div class="title">{{key}}</div>
+        <div class="item-city" v-for="inner of item" :key="inner.id">{{inner.name}}</div>
       </div>
     </div>
   </div>
@@ -61,6 +24,10 @@
 <script type="text/ecmascript-6">
 import Bscroll from 'better-scroll'
   export default {
+    props:{
+      hotCities:Array,
+      cities:Object
+    },
     data() {
       return {
 
