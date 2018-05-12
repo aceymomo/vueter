@@ -29,7 +29,6 @@
   height .86rem
   position relative
   background #00bcd4
-  border-bottom 1px solid #fff
   .header-left
     position absolute
     left .2rem
