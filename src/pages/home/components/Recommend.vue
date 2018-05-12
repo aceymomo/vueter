@@ -2,13 +2,13 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li v-for="item in recommendList" class="item" :key="item.id">
+      <li v-for="item in recommendMsg" class="item" :key="item.id">
         <div class="item-img">
           <span v-show="item.tommorw">可订明日</span>
           <img :src="item.imgUrl" alt="">
         </div>
         <div class="item-mid">
-          <h3>{{item.recoH3}}</h3>
+          <h3>{{item.title}}</h3>
           <span>{{item.recosp}}</span>
           <div class="item-mid-font">
             <div><span>￥</span><strong>{{item.price}}</strong>起</div>
@@ -23,52 +23,8 @@
 
 <script type="text/ecmascript-6">
   export default {
-    data() {
-      return {
-        recommendList:[
-          {
-            id:'0001',
-            imgUrl:'http://img1.qunarzz.com/sight/p0/1604/ff/ff0458e340cbfb2190.img.jpg_200x200_7796c66a.jpg',
-            recoH3:'宁波方特东方神画',
-            recosp:'5361条评论',
-            price:195,
-            address:'慈溪市',
-            print:'这里最近很火哦，好多人都在点评它呢！',
-            tommorw:true
-          },
-          {
-            id:'0002',
-            imgUrl:'http://img1.qunarzz.com/sight/p0/1604/ff/ff0458e340cbfb2190.img.jpg_200x200_7796c66a.jpg',
-            recoH3:'宁波方特东方神画',
-            recosp:'5361条评论',
-            price:195,
-            address:'慈溪市',
-            print:'这里最近很火哦，好多人都在点评它呢！',
-            tommorw:true
-          },
-          {
-            id:'0003',
-            imgUrl:'http://img1.qunarzz.com/sight/p0/1604/ff/ff0458e340cbfb2190.img.jpg_200x200_7796c66a.jpg',
-            recoH3:'宁波方特东方神画',
-            recosp:'5361条评论',
-            price:195,
-            address:'慈溪市',
-            print:'这里最近很火哦，好多人都在点评它呢！',
-            tommorw:false
-          },
-          {
-            id:'0004',
-            imgUrl:'http://img1.qunarzz.com/sight/p0/1604/ff/ff0458e340cbfb2190.img.jpg_200x200_7796c66a.jpg',
-            recoH3:'宁波方特东方神画',
-            recosp:'5361条评论',
-            price:195,
-            address:'慈溪市',
-            print:'这里最近很火哦，好多人都在点评它呢！',
-            tommorw:true
-          },
-        ]
-      }
-
+    props:{
+      recommendMsg:Array
     },
     components: {
 
