@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :letter="letter" :hotCities="hotCities" :cities="cities"></city-list>
+    <city-alphabet @change="handleClickLetter" :cities="cities"></city-alphabet>
   </div>
 </template>
 
@@ -17,7 +17,8 @@ import axios from 'axios'
     data() {
       return {
         hotCities:[],
-        cities:{}
+        cities:{},
+        letter:''
       }
 
     },
@@ -39,6 +40,9 @@ import axios from 'axios'
           this.hotCities = data.hotCities
           this.cities = data.cities
         }
+      },
+      handleClickLetter(letter){
+        this.letter = letter
       }
     },
     mounted(){
