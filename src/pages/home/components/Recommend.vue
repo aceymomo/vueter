@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li v-for="item in recommendMsg" class="item" :key="item.id">
+      <router-link tag="li" v-for="item in recommendMsg" class="item" :key="item.id" :to="'/detail?id=' + item.id">
         <div class="item-img">
           <span v-show="item.tommorw">可订明日</span>
           <img :src="item.imgUrl" alt="">
@@ -16,7 +16,7 @@
           </div>
           <button class="item-btn" type="button">{{item.print}}</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
