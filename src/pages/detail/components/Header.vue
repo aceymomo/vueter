@@ -52,7 +52,6 @@
 .fade-leave-to
   opacity 0
 .abs
-  z-index 2
   position absolute
   left .2rem
   top .04rem
@@ -66,6 +65,7 @@
   span
     color #fff
 .fixed
+  z-index 2
   position fixed
   top 0
   left 0

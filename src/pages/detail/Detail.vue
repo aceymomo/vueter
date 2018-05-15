@@ -2,24 +2,55 @@
   <div>
     <detail-banner></detail-banner>
     <detail-header></detail-header>
-    <div class="home"></div>
+    <div class="home">
+      <detail-list :list="list"></detail-list>
+    </div>
+    
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import DetailBanner from '@/pages/detail/components/banner'
 import DetailHeader from '@/pages/detail/components/Header'
+import DetailList from '@/pages/detail/components/List'
   export default {
     name:"Detail",
     data() {
       return {
-
+        list:[
+          {
+            title:'门票',
+            children:[
+              {
+                title:'宁波方特东方神话成人票',
+                children:[
+                  {
+                    title:'成人三馆联票'
+                  }
+                ]
+              },
+              {
+                title:'宁波方特东方神话儿童票'
+              },
+            ]
+          },
+          {
+            title:'官方门票'
+          },
+          {
+            title:'一日游'
+          },
+          {
+            title:'促销票'
+          },
+        ]
       }
 
     },
     components: {
       DetailBanner,
-      DetailHeader
+      DetailHeader,
+      DetailList
     }
   }
 </script>
