@@ -6,7 +6,9 @@
         {{item.title}}
       </li>
       <li class="item-children" v-if="item.children">
-        <detail-list :list="item.children"></detail-list>
+        <detail-list :list="item.children">
+        </detail-list>
+        
       </li>
     </ul>
   </div>

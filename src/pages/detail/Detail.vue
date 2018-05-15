@@ -19,7 +19,7 @@ import DetailList from '@/pages/detail/components/List'
       return {
         list:[
           {
-            title:'门票',
+            title:'去哪儿推荐',
             children:[
               {
                 title:'宁波方特东方神话成人票',
@@ -35,13 +35,7 @@ import DetailList from '@/pages/detail/components/List'
             ]
           },
           {
-            title:'官方门票'
-          },
-          {
-            title:'一日游'
-          },
-          {
-            title:'促销票'
+            title:'门票'
           },
         ]
       }
