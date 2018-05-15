@@ -1,30 +1,31 @@
 <template>
   <div>
     <div class="banner" @click="handleClickShow">
-      <img src="http://img1.qunarzz.com/sight/p0/201405/23/9878029ca513c02652ee26bfe61a5799.jpg_600x330_d4112bfe.jpg" alt="">
+      <img :src="bannerImg" alt="">
       <div class="banner-info">
         <div class="banner-title">
-          松兰山(AAAA景区)
+          {{this.sightName}}
         </div>
         <div class="banner-icon">
-          <span class="iconfont">&#xe679;</span>&nbsp;6
+          <span class="iconfont">&#xe679;</span>&nbsp;{{this.bannerImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary @close="handleGallaryClose" :imgs="imgs" v-show="showGallary"></common-gallary>
+    <common-gallary @close="handleGallaryClose" :imgs="bannerImgs" v-show="showGallary"></common-gallary>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import CommonGallary from 'common/gallary/gallary'
   export default {
+    props:{
+      sightName:String,
+      bannerImg:String,
+      bannerImgs:Array
+    },
     data() {
       return {
         showGallary:false,
-        imgs:[
-            'http://img1.qunarzz.com/sight/p0/201405/23/9878029ca513c02652ee26bfe61a5799.jpg_r_800x800_0c28d711.jpg',
-            'http://img1.qunarzz.com/sight/p0/201405/28/3b4cc8d8638f0177e922cc643595eb20.jpg_r_800x800_14753a11.jpg'
-        ]
       }
 
     },
