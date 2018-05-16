@@ -26,7 +26,7 @@
 
     },
     methods:{
-      handleScroll(){
+      handleaaScroll(){
         const top = document.documentElement.scrollTop
         if(top > 60){
           this.showAbs = false
@@ -35,11 +35,11 @@
         }
       }
     },
-    activated(){
-      window.addEventListener('scroll',this.handleScroll)
+    mounted(){
+      window.addEventListener('scroll',this.handleaaScroll)
     },
-    deactivated(){
-      window.removeEventListener('scroll',this.handleScroll)
+    unmounted(){
+      window.removeEventListener('scroll',this.handleaaScroll)
     }
   }
 </script>
