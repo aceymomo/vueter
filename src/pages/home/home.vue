@@ -50,6 +50,7 @@ export default {
         this.iconsMsg = data.iconList
         this.recommendMsg = data.recommendList
         this.weekendMsg = data.weekendList
+        console.log(this.recommendMsg)
       }
     }
   },

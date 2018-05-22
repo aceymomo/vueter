@@ -6,6 +6,7 @@
       :bannerImgs="gallaryImgs"
     ></detail-banner>
     <detail-header></detail-header>
+    <detail-contact></detail-contact>
     <div class="home">
       <detail-list :list="list"></detail-list>
     </div>
@@ -17,6 +18,7 @@
 import DetailBanner from '@/pages/detail/components/banner'
 import DetailHeader from '@/pages/detail/components/Header'
 import DetailList from '@/pages/detail/components/List'
+import DetailContact from '@/pages/detail/components/contact'
 import axios from 'axios'
   export default {
     name:"Detail",
@@ -32,7 +34,8 @@ import axios from 'axios'
     components: {
       DetailBanner,
       DetailHeader,
-      DetailList
+      DetailList,
+      DetailContact
     },
     methods:{
       getDetailInfo(){

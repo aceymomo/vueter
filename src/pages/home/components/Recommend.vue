@@ -9,10 +9,10 @@
         </div>
         <div class="item-mid">
           <h3>{{item.title}}</h3>
-          <span>{{item.recosp}}</span>
+          <span>{{item.desc}}</span>
           <div class="item-mid-font">
-            <div><span>￥</span><strong>{{item.price}}</strong>起</div>
-            <div><i>{{item.address}}</i></div>
+            <div class="item-mid-left"><span>￥</span><strong>{{item.price}}</strong>起</div>
+            <div class="item-mid-right"><i>{{item.address}}</i></div>
           </div>
           <button class="item-btn" type="button">{{item.print}}</button>
         </div>
@@ -71,14 +71,19 @@
     display block
     margin-bottom .32rem
   .item-mid-font
+    width 4rem
     margin-top .6rem
-    display flex
-    justify-content space-between
-    span
-      color #ff8300
-    strong 
-      color #ff8300
-      font-size .4rem
+    position relative
+    .item-mid-left
+      span
+        color #ff8300
+      strong 
+        color #ff8300
+        font-size .4rem
+    .item-mid-right
+      position absolute
+      right 0
+      top 0
   .item-btn
     font-size .24rem
     background #fff9f9
