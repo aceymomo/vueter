@@ -64,6 +64,5 @@ import axios from 'axios'
 </script>
 
 <style scoped lang="stylus">
-.home
-  height 50rem
+
 </style>
