@@ -12,46 +12,54 @@
     </ul>
     <ul>
       <li class="item-box">
-        <div class="item-left">[夜场]北京欢乐谷成人票</div>
-        <div class="item-right">
-          <b class="price">￥</b>
-          <strong>117.1</strong>
-          <i>起</i>
-          <b class="iconfont">&#xe65e;</b>
-          <b class="iconfont">&#xe65d;</b>
+        <div @click="handleClickList">
+          <div class="item-left">[夜场]北京欢乐谷成人票</div>
+          <div class="item-right">
+            <b class="price">￥</b>
+            <strong>117.1</strong>
+            <i>起</i>
+            <b class="iconfont" v-show="!listshow">&#xe65e;</b>
+            <b class="iconfont" v-show="listshow">&#xe65d;</b>
+          </div>
         </div>
-        <ul class="item-inner-wrap">
-          <li class="item-inner-box">
+        <ul class="item-inner-wrap" v-show="listshow" ref="inner">
+          <li class="item-inner-box" v-for="(item,index) in listlist" :key="item.id" :class="{active:index<classIndex}">
             <div class="inner-left">
-              <span>北京欢乐谷夜场成人票(5.2-5.31)</span>
+              <span>{{item.title}}</span>
               <div class="inner-first">
                 <img src="https://img1.qunarzz.com/piao/fusion/1804/25/792e9929973a9902.png" alt="">
-                <span>可订明日</span>
+                <span v-show="item.today">可订明日</span>
               </div>
               <div class="inner-second">
-                <span>自营</span>
-                <span>无需换票</span>
-                <span>随时退</span>
+                <span v-show="item.ziying">自营</span>
+                <span v-show="item.huanpiao">无需换票</span>
+                <span v-show="item.suishi">随时退</span>
+                <span v-show="item.tiaojian">条件退</span>
               </div>
               <div class="inner-third">
-                <b>去哪儿直销</b>
+                <b>{{item.fangshi}}</b>
                 <b class="inner-font">预定须知</b>
                 <span class="iconfont">&#xe62d;</span>
               </div>
             </div>
             <div class="inner-right">
-              <div>
+              <div class="inner-right-top">
                 <span>￥</span>
-                <strong>118.0</strong>
+                <strong>{{item.price}}</strong>
               </div>
               <div>
                 <button>预定</button>
               </div>
             </div>
           </li>
+          <div class="listshows" @click="hindleClicksy" v-show="classIndex == 2">
+            <strong>查看剩余报价</strong>
+            <span class="iconfont">&#xe65e;</span>
+          </div>
         </ul>
       </li>
     </ul>
+    <div class="bttom"></div>
   </div>
 </template>
 
@@ -63,18 +71,84 @@
     },
     data() {
       return {
-        titleshow:true
+        titleshow:true,
+        listshow:false,
+        classIndex:2,
+        listlist:[
+          {
+            id:1,
+            title:'北京欢乐谷夜场成人票(5.2-5.31)',
+            today:true,
+            ziying:true,
+            huanpiao:true,
+            suishi:true,
+            tiaojian:false,
+            fangshi:'去哪儿直销',
+            price:118.0
+          },
+          {
+            id:2,
+            title:'北京欢乐谷夜场成人票(5.2-5.31)',
+            today:true,
+            ziying:false,
+            huanpiao:true,
+            suishi:false,
+            tiaojian:true,
+            fangshi:'驴妈妈旅游网',
+            price:118.0
+          },
+          {
+            id:3,
+            title:'【刷身份证入园，无需换票】北京欢乐谷夜场成人票',
+            today:true,
+            ziying:false,
+            huanpiao:true,
+            suishi:false,
+            tiaojian:true,
+            fangshi:'先行旅游网',
+            price:117.1
+          },
+          {
+            id:4,
+            title:'【刷身份证入园，无需换票】北京欢乐谷夜场成人票',
+            today:true,
+            ziying:false,
+            huanpiao:true,
+            suishi:false,
+            tiaojian:true,
+            fangshi:'票票券',
+            price:118.0
+          },
+          {
+            id:5,
+            title:'【刷身份证入园，无需换票】北京欢乐谷夜场成人票',
+            today:true,
+            ziying:false,
+            huanpiao:false,
+            suishi:true,
+            tiaojian:false,
+            fangshi:'蓝精灵',
+            price:118.0
+          },
+        ]
       }
-
     },
     components: {
-
     },
     methods:{
       titleClick(){
         this.titleshow = !this.titleshow
+      },
+      handleClickList(){
+        this.listshow = !this.listshow
+      },
+      hindleClicksy(){
+        this.classIndex = this.$refs.inner.length - 1
       }
-    }
+    },
+    computed:{
+
+    },
   }
 </script>
 
@@ -113,36 +187,39 @@
     top .06rem
     left 0
 .item-box
-  display flex
-  justify-content space-between
-  flex-wrap wrap
   font-size .3rem
   line-height .88rem
-  .item-left
-    margin-left .2rem
-  .item-right
-    margin-right .2rem
-    b
-      font-size .4rem
-    .price
-      font-size .24rem
-      color #ff9800
-    strong
-      font-size .4rem
-      color #ff9800
-    i
-      font-size .24rem
-      color #9e9e9e
+  &>div
+    display flex
+    justify-content space-between
+    flex-wrap wrap
+    .item-left
+      margin-left .2rem
+    .item-right
+      margin-right .2rem
+      b
+        font-size .4rem
+      .price
+        font-size .24rem
+        color #ff9800
+      strong
+        font-size .4rem
+        color #ff9800
+      i
+        font-size .24rem
+        color #9e9e9e
   .item-inner-wrap
     width 100%
-    padding 0 .2rem
     background #f5f5f5
     .item-inner-box
       width 100%
       display flex
+      align-items center
       line-height 1
       border-bottom 1px solid #eee
-      padding .24rem 0
+      padding .24rem .2rem
+      &.active
+        display none
       .inner-left
         flex 1
         span
@@ -176,8 +253,33 @@
           span
             font-size .12rem
       .inner-right
+        margin-right .4rem
+        .inner-right-top
+          display flex
+          justify-content center
+          align-items flex-end
+          span
+            font-size .18rem
+            color #ff9800
+          strong
+            font-size .4rem
+            color #ff9800
         button
-          padding .2rem
+          padding .14rem .58rem
+          border-radius .08rem
+          color #fff
+          background-image linear-gradient(130deg,#ffab1e 37%,#ff8c12 100%)
+    .listshows
+      display flex
+      justify-content center
+      background #fff
+      font-size .28rem
+      strong 
+        margin-right .1rem
 .item-children
   padding 0 .2rem
+.bttom
+  height .2rem
+  background #eee
+  width 100%
 </style>

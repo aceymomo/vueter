@@ -10,6 +10,7 @@
     <div class="home">
       <detail-list :list="list"></detail-list>
     </div>
+    <detail-pinglun></detail-pinglun>
     
   </div>
 </template>
@@ -19,6 +20,7 @@ import DetailBanner from '@/pages/detail/components/banner'
 import DetailHeader from '@/pages/detail/components/Header'
 import DetailList from '@/pages/detail/components/List'
 import DetailContact from '@/pages/detail/components/contact'
+import DetailPinglun from '@/pages/detail/components/pinglun'
 import axios from 'axios'
   export default {
     name:"Detail",
@@ -35,7 +37,8 @@ import axios from 'axios'
       DetailBanner,
       DetailHeader,
       DetailList,
-      DetailContact
+      DetailContact,
+      DetailPinglun
     },
     methods:{
       getDetailInfo(){
