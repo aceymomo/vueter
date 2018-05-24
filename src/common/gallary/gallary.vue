@@ -6,6 +6,7 @@
         <swiper-slide v-for="(item,index) of imgs" :key="index">
           <img class="gallary-img" :src="item" alt="">
         </swiper-slide>
+        
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
       </swiper>
@@ -19,7 +20,7 @@
       imgs:{
         type:Array,
         default:[]
-      }
+      },
     },
     data() {
       return {
@@ -36,7 +37,7 @@
       handleClickClose(){
         this.$emit('close')
       }
-    }
+    },
   }
 </script>
 

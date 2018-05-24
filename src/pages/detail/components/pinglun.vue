@@ -26,9 +26,14 @@
       </div>
       <div class="pl-img">
         <ul>
-          <li v-for="(items,index) in item.img" :key="index"><img :src="items" /></li>
+          <li v-for="(items,index) in item.img" :key="index" @click="handleClickShow">
+            <img :src="items" />
+          </li>
           <div class="clear"></div>
           <div class="img-num">共{{item.img.length}}张</div>
+          <fade-animation>
+            <common-gallary @close="handleGallaryClose" :imgs="item.img" v-show="showGallary"></common-gallary>
+          </fade-animation>
         </ul>
       </div>
     </div>
@@ -41,10 +46,13 @@
 </template>
 
 <script type="text/ecmascript-6">
+import CommonGallary from 'common/gallary/gallary'
+import FadeAnimation from 'common/fade/Fade'
   export default {
     data() {
       return {
         soshow:false,
+        showGallary:false,
         list:[
           {
             id:1,
@@ -85,11 +93,18 @@
 
     },
     components: {
-
+      CommonGallary,
+      FadeAnimation
     },
     methods:{
       handleClickshow(){
         this.soshow = !this.soshow
+      },
+      handleGallaryClose(){
+        this.showGallary = false
+      },
+      handleClickShow(){
+        this.showGallary = true
       }
     }
   }
