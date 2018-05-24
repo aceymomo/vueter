@@ -11,7 +11,7 @@
       <detail-list :list="list"></detail-list>
     </div>
     <detail-pinglun></detail-pinglun>
-    
+    <detail-tuijian></detail-tuijian>
   </div>
 </template>
 
@@ -21,6 +21,7 @@ import DetailHeader from '@/pages/detail/components/Header'
 import DetailList from '@/pages/detail/components/List'
 import DetailContact from '@/pages/detail/components/contact'
 import DetailPinglun from '@/pages/detail/components/pinglun'
+import DetailTuijian from '@/pages/detail/components/tuijian'
 import axios from 'axios'
   export default {
     name:"Detail",
@@ -38,7 +39,8 @@ import axios from 'axios'
       DetailHeader,
       DetailList,
       DetailContact,
-      DetailPinglun
+      DetailPinglun,
+      DetailTuijian
     },
     methods:{
       getDetailInfo(){
